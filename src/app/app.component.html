@@ -1,0 +1,59 @@
+<div class="container mt-5">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        ngModel
+        name="email"
+        #email="ngModel"
+        required
+      />
+      <div
+        *ngIf="f.touched && email.touched && !email.valid"
+        class="form-text text-danger"
+      >
+        We'll never share your email with anyone else.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        name="password"
+        ngModel
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        name="hobbies"
+        ngModel
+      >
+        <option selected>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+    <div class="mb-3 form-check">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        id="exampleCheck1"
+        name="consenso"
+        ngModel
+        value="1"
+        required
+      />
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!f.valid">
+      Submit
+    </button>
+  </form>
+</div>
